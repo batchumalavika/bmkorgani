@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMK Organics – Natural Homemade Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg,#f6fff9,#ffffff);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(120deg,#2f6f4e,#7bcf9c);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 1.2s ease;
+    }
+    .hero h1 { font-size: 3.2rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 25px; }
+    .hero a {
+      background: #fff;
+      color: #2f6f4e;
+      padding: 14px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .hero a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(31,79,55,.95);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background .3s;
+    }
+    nav a:hover { background: #2f6f4e; }
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+      animation: slideUp 1s ease both;
+    }
+    h2 { color: #2f6f4e; font-size: 2.2rem; margin-bottom: 20px; text-align: center; }
+    .highlight {
+      background: linear-gradient(120deg,#e9f5ef,#ffffff);
+      border-radius: 20px;
+      padding: 30px;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      transition: transform .4s, box-shadow .4s;
+      max-width: 600px;
+      margin: auto;
+    }
+    .card h3 { color: #1f4f37; text-align: center; }
+    .order-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 16px;
+      background: linear-gradient(120deg,#2f6f4e,#7bcf9c);
+      color: white;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: center;
+    }
+    .whatsapp-btn { background: #25D366 !important; margin-top: 25px; }
+    #priceDisplay { font-weight: bold; margin: 10px 0; color: #2f6f4e; min-height: 1.2em; }
+    
+    ul#orderItems { list-style: none; padding-left: 0; }
+    ul#orderItems li {
+      background: #f0f9f2;
+      margin: 8px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 4px solid #2f6f4e;
+    }
+    .remove-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer { background: #1f4f37; color: white; text-align: center; padding: 30px 15px; }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 16px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      z-index: 999;
+    }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes slideUp { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:none;} }
+    
+    @media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 30px 15px;
+    flex-direction: column;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero a {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+  .highlight {
+    font-size: 0.95rem;
+    padding: 20px;
+  }
+  .card {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  label, select, textarea, button.order-btn {
+    font-size: 16px;
+  }
+
+  select, textarea {
+    padding: 12px;
+  }
+
+  textarea {
+    height: 80px;
+  }
+
+  button.order-btn {
+    padding: 14px;
+    width: 100%;
+  }
+
+  ul#orderItems li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  ul#orderItems li button.remove-btn {
+    margin-top: 8px;
+    align-self: flex-end;
+  }
+
+  footer {
+    padding: 20px 10px;
+    font-size: 14px;
+  }
+
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    padding: 14px 18px;
+    font-size: 18px;
+  }
+}
+/* Improve card spacing and width */
+#product-list details.card {
+  max-width: 700px;
+  margin: 12px auto;
+  border: 1px solid #d3e4d7;
+  background: #fafafa;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(47,111,78,0.1);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Smooth open/close animations */
+#product-list details.card > summary {
+  padding: 15px 20px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  user-select: none;
+  list-style: none;
+  outline: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  border-radius: 15px;
+  background: #eaf4ea;
+  margin-bottom: 0;
+}
+
+/* Hover and open summary background */
+#product-list details.card > summary:hover {
+  background: #d4eccf;
+}
+#product-list details.card[open] > summary {
+  background: #cae4c1;
+  box-shadow: inset 4px 0 0 #2f6f4e;
+}
+
+/* Nested card styling */
+#product-list details.card details.card {
+  margin: 10px 20px 15px 20px;
+  max-width: none;
+  border-color: #c5ddb8;
+  background: #f4faf3;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Nested summary */
+#product-list details.card details.card > summary {
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #edf8ec;
+  border-radius: 12px;
+  margin-bottom: 0;
+}
+#product-list details.card details.card > summary:hover {
+  background: #dcedd6;
+}
+#product-list details.card details.card[open] > summary {
+  background: #d0e7be;
+  box-shadow: inset 3px 0 0 #4a794e;
+}
+
+/* List inside each card */
+#product-list ul {
+  padding-left: 30px;
+  margin: 10px 0 15px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* List items styling */
+#product-list li {
+  margin-bottom: 6px;
+}
+
+/* Order button */
+.order-btn {
+  max-width: 200px;
+  margin: 15px auto 20px auto;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  #product-list details.card {
+    max-width: 100%;
+    margin: 10px 5px;
+  }
+  #product-list details.card details.card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+/* MOBILE AUTO-HIDE NAVBAR */
+@media (max-width: 768px) {
+  nav {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  nav.nav-hidden {
+    transform: translateY(-100%);
+  }
+}
+/* ===========================
+   HAMBURGER MENU – MOBILE ONLY
+   =========================== */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 10px; 
+  left: 15px;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  color: green-cyan;
+  user-select: none;
+  z-index: 1100;
+  padding: 7px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(31,79,55,.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  nav a {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+  }
+}
+/* CART ICON + BADGE */
+.cart-icon {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+}
+
+#cartCount {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #ff3b3b;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+@keyframes badgePop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.4); }
+  60%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.cart-badge-animate {
+  animation: badgePop 0.35s ease;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div>
+      <h1>BMK Organics</h1>
+      <p>100% Natural • Homemade • Customised for Every Skin</p>
+      <a href="#product-list">Explore Products</a>
+    </div>
+  </div>
+
+  <nav>
+  <div class="nav-inner">
+    <span class="hamburger" id="hamburger">☰</span>
+    <span class="cart-icon" id="cartIcon">🛒<span id="cartCount">0</span></span>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#product-list">Products</a>
+      <a href="#order-now">Order</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+
+  <section id="product-list">
+  <h2>Our Products</h2>
+  <div class="highlight">Please refer to the "Order Now" section for live pricing of each item.</div>
+  <br>
+  <input type="text" id="globalProductSearch" placeholder="Search all products..." style="width:100%; padding:12px; margin-bottom: 20px; border-radius:8px; border:1px solid #ccc;">
+
+  <details class="card">
+  <summary><strong>🧼 Soaps – Product List (Browse by Skin Type)</strong></summary>
+
+  <details class="card">
+  <summary><strong>🌿 Oily Skin Soaps</strong></summary>
+  <ul>
+    <li><strong>Papaya</strong> – Pigmentation and scars </li>
+    <li><strong>Multani Mitti</strong> – Reduces acne </li>
+    <li><strong>Saffron</strong> – Brightens skin </li>
+    <li><strong>Tomato</strong> – Tightens pores </li>
+    <li><strong>Orange Peel</strong> – Oil control </li>
+    <li><strong>Carrot</strong> – Colour improvement </li>
+    <li><strong>Vitamin C</strong> – Removes dead skin cells </li>
+    <li><strong>Manjista</strong> – Reduces melasma </li>
+    <li><strong>Ubtan</strong> – Natural glow </li>
+    <li><strong>Beetroot</strong> – Reduces allergies </li>
+    <li><strong>Red Toor Dal</strong> – Radiant complexion </li>
+    <li><strong>Neem</strong> – Reduces dermatitis </li>
+    <li><strong>Lemon Peel</strong> – Skin exfoliation </li>
+    <a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a>
+
+  </ul>
+</details>
+
+
+  <details class="card">
+    <summary><strong>🌸 Combination Skin</strong></summary>
+    <ul>
+      <li><strong>Tomato Soap</strong> – Reduces oiliness </li>
+      <li><strong>Multani Mitti Soap</strong> – Rejuvenates skin </li>
+      <li><strong>Saffron Soap</strong> – Brightens skin </li>
+      <li><strong>Lemon Peel Soap</strong> – Clears hyperpigmentation </li>
+      <li><strong>Orange Peel Soap</strong> – Colour improvement </li>
+      <li><strong>Carrot Soap</strong> – Reduces allergies </li>
+      <li><strong>Vitamin C Soap</strong> – Dark circles </li>
+      <li><strong>Manjista Soap</strong> – Reduces melasma </li>
+      <li><strong>Ubtan Soap</strong> – Improves skin tone </li>
+      <li><strong>Beetroot Soap</strong> – Glowing skin </li>
+      <li><strong>Neem Soap</strong> – Reduces acne </li>
+      <a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+      Go to Order
+      </a>
+    </ul>
+  </details>
+
+  <details class="card">
+    <summary><strong>🌼 Dry Skin</strong></summary>
+    <ul>
+      <li><strong>Potato Soap</strong> – Hyper Pigmentation</li>
+      <li><strong>Banana Soap (Kids)</strong> – Moisturising</li>
+      <li><strong>Aloe Vera Soap</strong> – Boosts Collagen</li>
+      <li><strong>Manjista Soap</strong> – Reduces Melasma</li>
+      <li><strong>Oats Soap</strong> – Skin Cleanser, Removes Dead Skin</li>
+      <li><strong>Ubtan Soap</strong> – Reduces Pigmentation</li>
+      <li><strong>Coconut Milk Soap</strong> – Reduces Wrinkles and Fine lines</li>
+      <a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+      Go to Order
+      </a>
+    </ul>
+  </details>
+
+  <details class="card">
+    <summary><strong>🍃 Sensitive Skin</strong></summary>
+    <ul>
+      <li><strong>Sunni Pindi Soap</strong> – Tightens skin</li>
+      <li><strong>Cucumber Soap</strong> – Nourishes and moisturises</li>
+      <li><strong>Watermelon Soap</strong> – Skin hydration and antioxidants</li>
+      <li><strong>Cerelac Soap (Kids)</strong> – Skin rashes, antiseptic</li>
+      <li><strong>Apple Soap (Kids)</strong> – Brightens complexion</li>
+      <li><strong>Sandal Wood Soap</strong> – Improves colour</li>
+      <li><strong>Aloe Vera Soap</strong> – Fights acne, skin infections</li>
+      <li><strong>Manjista Soap</strong> – Reduces acne</li>
+      <li><strong>Ubtan Soap</strong> – Cleanses skin</li>
+      <li><strong>Beetroot Soap</strong> – Cools and refreshes skin</li>
+      <li><strong>Coconut Milk Soap</strong> – Promotes collagen layer</li>
+      <a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+      Go to Order
+      </a>
+    </ul>
+  </details>
+
+  <details class="card">
+    <summary><strong>✨ Normal Skin</strong></summary>
+    <ul>
+      <li><strong>Coffee Soap</strong> – Dtan</li>
+      <li><strong>Almond Soap</strong> – Enhances skin tone</li>
+      <li><strong>Pineapple Soap</strong> – Anti ageing</li>
+      <li><strong>Watermelon Soap</strong> – Youthful complexion</li>
+      <li><strong>Java Plum Soap</strong> – Anti ageing</li>
+      <li><strong>Red Wine Soap</strong> – Anti ageing</li>
+      <li><strong>Manjista Soap</strong> – Skin complexion</li>
+      <li><strong>Multani Mitti Soap</strong> – Colour complexion</li>
+      <li><strong>Ubtan Soap</strong> – Dark spots</li>
+      <a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+      Go to Order
+      </a>
+    </ul>
+  </details>
+
+  <details class="card">
+    <summary><strong>👶 Kids</strong></summary>
+    <ul>
+      <li><strong>Banana Soap (Kids)</strong> – Mild, moisturising</li>
+      <li><strong>Apple Soap (Kids)</strong> – Brightens Complexion</li>
+      <li><strong>Cerelac Soap (Kids)</strong> – Skin Rashes and Antispetic</li>
+      <a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+      Go to Order
+      </a>
+    </ul>
+  </details>
+  
+  </details>
+  <details class="card"><summary><strong>💇 Hair Care</strong></summary><ul>
+  <details class="card"><summary><strong>💇 Hair Shampoo</strong></summary><ul><li>Aloe Vera Shampoo</li><li>Hibiscus Shampoo</li><li>Neem & Tulsi Shampoo</li><li>Onion Shampoo</li><li>Soap Nuts Shampoo</li><li>Herbal Shampoo</li><li>Rosemary Shampoo</li><li>Amla Shampoo</li><li>Bhringraj Shampoo</li><li>Flax Seeds Shampoo</li><a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a></ul></details> 
+  <details class="card"><summary><strong>💇 Hair Conditioner</strong></summary><ul><li>Apricot Conditioner</li><li>Coconut Milk Conditioner</li><li>Argan Hair Fall Control Conditioner</li><li>Onion Conditioner</li><a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a></ul></details>
+  <details class="card"><summary><strong>💇 Hair Treatment</strong></summary><ul><li>Lice and Dandruff pack</li><li>Hair Growth Spray and Oil</li><li>Hair Dye Powder</li><a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a></ul></details>
+  </ul>
+  </details>
+  
+  <details class="card"><summary><strong>👶 Baby Products</strong></summary><ul><li>Baby Soap</li><li>Baby Bath Powder</li><li>Baby Powder</li><li>Baby Moisturiser</li><li>Baby Shower Oil</li><a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a></ul></details>
+  <details class="card"><summary><strong>💧 Serums</strong></summary><ul><li>Acne Serum</li><li>Dry Skin Serum</li><li>Stretch Marks Serum</li><li>Oily & Combination Skin Serum</li><li>All Skin Repair Serum</li><a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a></ul></details>
+  <details class="card"><summary><strong>🧴 Moisturisers</strong></summary><ul><li>Vitamin C + E Moisturiser</li><li>Aloe Vera Moisturiser</li><li>Cucumber Moisturiser</li><li>Beetroot Moisturiser</li><li>Coconut Milk Moisturiser</li><li>Saffron Moisturiser</li><li>Rice Starch Moisturiser</li><a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a></ul></details>
+  <details class="card"><summary><strong>➕ Add-Ons</strong></summary><ul><li>Waxing Powder</li><li>Bridal Face Pack Powder</li><li>Tooth Powder</li><li>Dark Circles Eye Cream</li><li>Lipsticks</li><li>Lip Balms</li><li>Unwanted Hair Removal Soap</li><li>Skin Whitening Soap</li><a href="#order-now" class="order-btn" style="margin-top:15px;display:block;text-align:center;">
+    Go to Order
+    </a></ul></details>
+</section>
+
+
+  <section id="about">
+  <h2>About Us</h2>
+  <div class="card" style="max-width: 800px; line-height: 1.6; text-align: left;">
+    <h3 style="color: #2f6f4e;">From My Kitchen to Your Skincare Routine</h3>
+    <p>
+      Hello! I’m <strong>Batchu Kavitha</strong>, the heart and hands behind BMK Organics. 
+      My journey didn’t start in a laboratory, but in my own home in Nandyal. Like many of you, I grew tired of seeing skincare products filled with long lists of chemicals I couldn't pronounce. I believed that nature already provided everything we needed to glow.
+    </p>
+    <p>
+      What started as a personal mission soon turned into a passion for helping others. Today, BMK Organics is where the art of handmade beauty comes to life. Every bar of soap, bottle of serum and jar of herbal shampoo is handmade in small batches, ensuring that the age-old secrets of Indian wellness are customized specifically for your unique skin type and hair concerns.
+    </p>
+    
+    <div style="background: #f0f9f2; padding: 20px; border-radius: 12px; margin-top: 20px;">
+      <h4 style="margin-top: 0; color: #1f4f37;">Our Promise to You:</h4>
+      <ul style="list-style-type: '🌿 '; padding-left: 20px;">
+        <li><strong>100% Natural:</strong> We use real extracts like Beetroot, Papaya, Rosemary, and Almonds.</li>
+        <li><strong>Zero Toxins:</strong> No parabens, no sulfates, and no harsh preservatives.</li>
+        <li><strong>Customized for You:</strong> We understand that no two individuals are the same. We identify the specific needs of your skin (Oily, Dry, or Sensitive) and your hair (Dandruff, Growth, or Texture) to create formulas that truly work.</li>
+      </ul>
+    </div>
+    
+    <p style="margin-top: 20px; font-style: italic; text-align: center; color: #2f6f4e;">
+      "When you choose BMK Organics, you aren’t just buying skincare—you’re supporting a dream of pure, honest, and chemical-free beauty. From my home to yours, thank you for being part of this journey."
+    </p>
+  </div>
+</section>
+
+  <section id="order-now">
+    <h2>Order Now</h2>
+    <div class="highlight">1. Add items to your list <br> 2. View your total <br> 3. Send the list to us on WhatsApp</div>
+    <br><br>
+    <div class="card">
+      <h3>Place Your Order</h3>
+      <form id="orderForm">
+        <label>Product Category</label>
+        <select id="product" style="width:100%;padding:10px;margin:10px 0;">
+          <option value="">Select Category</option>
+          <option value="Soaps">Soaps</option>
+          <option value="Hair Shampoo">Hair Shampoo</option>
+          <option value="Hair Conditioner">Hair Conditioner</option>
+          <option value="Hair Treatment">Hair Treatment</option>
+          <option value="Baby Products">Baby Products</option>
+          <option value="Serums">Serums</option>
+          <option value="Moisturisers">Moisturisers</option>
+          <option value="Add-Ons">Add-Ons</option>
+        </select>
+
+        <div id="soapSkinWrapper" style="display:none;">
+          <label>Skin Type</label>
+          <select id="soapSkin" style="width:100%;padding:10px;margin:10px 0;">
+            <option value="">Select Skin Type</option>
+            <option value="Oily Skin">Oily Skin</option>
+            <option value="Dry Skin">Dry Skin</option>
+            <option value="Combination Skin">Combination Skin</option>
+            <option value="Sensitive Skin">Sensitive Skin</option>
+            <option value="Normal Skin">Normal Skin</option>
+            <option value="Kids">Kids</option>
+          </select>
+        </div>
+
+        <label>Select Item</label>
+        <select id="item" style="width:100%;padding:10px;margin:10px 0;">
+          <option value="">Select category first</option>
+        </select>
+
+        <div id="priceDisplay"></div>
+
+        <label>Quantity</label>
+        <select id="qty" style="width:100%;padding:10px;margin:10px 0;">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="Bulk">Bulk (Wholesale)</option>
+        </select>
+
+        <label>Additional Notes</label>
+        <textarea id="notes" placeholder="Customisation requests..." style="width:100%;padding:10px;margin:10px 0; height: 60px;"></textarea>
+
+        <button type="button" id="addItemBtn" class="order-btn">+ Add Item to List</button>
+
+        <div id="orderList" style="margin-top:25px; border-top: 2px solid #f0f9f2; padding-top: 15px;">
+          <h4 style="margin-bottom: 10px;">Your Selection:</h4>
+          <ul id="orderItems"></ul>
+          <div style="font-weight:bold; font-size: 1.2rem; color: #2f6f4e; margin-top: 15px;">
+            Total Price: ₹<span id="totalPrice">0</span>
+          </div>
+        </div>
+
+        <button type="submit" class="order-btn whatsapp-btn">Order on WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="highlight"><strong>Batchu Kavitha</strong><br>SBI Colony, Nandyal<br>📞 7842133309</div>
+  </section>
+
+  <footer>© BMK Organics – Natural Homemade Beauty</footer>
+
+  <a class="whatsapp-float" href="https://wa.me/917842133309?text=Hi%20BMK%20Organics,%20I%20have%20a%20question" target="_blank">💬 Chat</a>
+
+<script>
+  // CATEGORY LISTS
+  const soapItemsBySkin = {
+    'Oily Skin': ['Papaya – Pigmentation and Scars','Multani Mitti – Reduces Acne','Saffron – Brightens Skin','Tomato – Tighten Pores','Orange Peel – Oil Control','Carrot – Colour Improvement','Vitamin C – Removes dead skin cells','Manjista – Reduces Melasma','Ubtan – Natural Glow','Beetroot – Reduces Allergies','Red Toor Dal – Radiant Complexion','Neem – Reduces Dermatitis','Lemon Peel – Skin Exfoliation'],
+    'Combination Skin': ['Tomato Soap – reduces oiliness','Multani Mitti Soap – rejuvenates skin','Saffron Soap – brightens skin','Lemon Peel Soap – clears hyperpigmentation','Orange Peel Soap – colour improvement','Carrot Soap – reduces allergies','Vitamin C Soap – dark circles','Manjista Soap – reduces melasma','Ubtan Soap – improves skin tone','Beetroot Soap – glowing skin','Neem Soap – reduces acne'],
+    'Dry Skin': ['Potato Soap – Hyper Pigmentation','Banana Soap (Kids) – Moisturising','Aloe Vera Soap – Boosts Collagen','Manjista Soap – Reduces Melasma','Oats Soap – Skin Cleanser','Ubtan Soap – Reduces Pigmentation','Coconut Milk Soap – Wrinkles/Fine lines'],
+    'Sensitive Skin': ['Sunni Pindi Soap – Tightens Skin','Cucumber Soap – Nourishes','Watermelon Soap – Hydration','Cerelac Soap (Kids) – Antiseptic','Apple Soap (Kids) – Brightens','Sandal Wood Soap – Improves Colour','Aloe Vera Soap – Acne/Infections','Manjista Soap – Reduces Acne','Ubtan Soap – Cleanses','Beetroot Soap – Cools Skin','Coconut Milk Soap – Collagen'],
+    'Normal Skin': ['Coffee Soap – Dtan','Almond Soap – Enhances tone','Pineapple Soap – Anti ageing','Watermelon Soap – Youthful','Java Plum Soap – Anti ageing','Red Wine Soap – Anti ageing','Manjista Soap – Complexion','Multani Mitti Soap – Complexion','Ubtan Soap – Dark Spots'],
+    'Kids': ['Banana (Kids) – moisturising', 'Apple (Kids) – gentle cleansing', 'Cerelac (Kids) – mild care']
+  };
+
+  const otherItems = {
+    'Hair Shampoo': ['Herbal Shampoo - 500ml','Aloevera Shampoo - 500ml','Hibiscus Shampoo - 500ml','Neem and Tulsi Shampoo - 500ml','Onion Shampoo - 500ml','Soap Nuts Shampoo - 500ml','Rosemary Shampoo - 500ml','Amla Shampoo - 500ml','Bhringraj Shampoo - 500ml','Flax Seeds Shampoo - 500ml'],
+    'Hair Conditioner': ['Apricot Conditioner - 200ml', 'Coconut Milk Conditioner - 200ml', 'Argan Hair Fall Control Conditioner - 200ml', 'Onion Conditioner - 200ml'],
+    'Hair Treatment': ['Lice and Dandruff Pack - 500gms', 'Hair Growth Spray and Oil - 100ml', 'Hair Dye Powder - 50gms'],
+    'Baby Products': ['Baby Soap', 'Baby Moisturiser', 'Baby Bath Powder', 'Baby Powder', 'Baby Shower Oil'],
+    'Serums': ['Acne Serum – acne control - 30ml','Dry Skin Serum – deep hydration - 30ml','Stretch Marks Serum - 30ml','Oily and Combination Skin Serum - 30ml','All Skin Repair Serum - 30ml'],
+    'Moisturisers': ['Vitamin C + E Moisturiser - 100gms','Aloe Vera Moisturiser - 100gms','Coconut Milk Moisturiser - 100gms','Cucumber Moisturiser - 100gms','Beetroot Moisturiser - 100gms','Saffron Moisturiser - 100gms','Rice Starch Moisturiser - 100gms'],
+    'Add-Ons': ['Bridal Face Pack Powder - 100gms','Dark Circles Eye Cream - 50gms','Waxing Powder - 100gms','Tooth Powder - 100gms','Lipsticks','Lipbalms','Unwanted Hair Removal Soap','Skin Whitening Soap']
+  };
+
+  // INDIVIDUAL PRICES – COMPLETE LIST
+const prices = {
+
+  // 🧼 SOAPS – OILY SKIN
+  'Papaya – Pigmentation and Scars': 130,
+  'Multani Mitti – Reduces Acne': 130,
+  'Saffron – Brightens Skin': 175,
+  'Tomato – Tighten Pores': 100,
+  'Orange Peel – Oil Control': 125,
+  'Carrot – Colour Improvement': 110,
+  'Vitamin C – Removes dead skin cells': 120,
+  'Manjista – Reduces Melasma': 150,
+  'Ubtan – Natural Glow': 140,
+  'Beetroot – Reduces Allergies': 100,
+  'Red Toor Dal – Radiant Complexion': 130,
+  'Neem – Reduces Dermatitis': 100,
+  'Lemon Peel – Skin Exfoliation': 110,
+
+  // 🧼 SOAPS – COMBINATION SKIN
+  'Tomato Soap – reduces oiliness': 100,
+  'Multani Mitti Soap – rejuvenates skin': 130,
+  'Saffron Soap – brightens skin': 175,
+  'Lemon Peel Soap – clears hyperpigmentation': 110,
+  'Orange Peel Soap – colour improvement': 125,
+  'Carrot Soap – reduces allergies': 110,
+  'Vitamin C Soap – dark circles': 120,
+  'Manjista Soap – reduces melasma': 150,
+  'Ubtan Soap – improves skin tone': 140,
+  'Beetroot Soap – glowing skin': 100,
+  'Neem Soap – reduces acne': 100,
+
+  // 🧼 SOAPS – DRY SKIN
+  'Potato Soap – Hyper Pigmentation': 100,
+  'Banana Soap (Kids) – Moisturising': 125,
+  'Aloe Vera Soap – Boosts Collagen': 130,
+  'Manjista Soap – Reduces Melasma': 150,
+  'Oats Soap – Skin Cleanser': 130,
+  'Ubtan Soap – Reduces Pigmentation': 140,
+  'Coconut Milk Soap – Wrinkles/Fine lines': 130,
+
+  // 🧼 SOAPS – SENSITIVE SKIN
+  'Sunni Pindi Soap – Tightens Skin': 130,
+  'Cucumber Soap – Nourishes': 100,
+  'Watermelon Soap – Hydration': 130,
+  'Cerelac Soap (Kids) – Antiseptic': 130,
+  'Apple Soap (Kids) – Brightens': 130,
+  'Sandal Wood Soap – Improves Colour': 150,
+  'Aloe Vera Soap – Acne/Infections': 130,
+  'Manjista Soap – Reduces Acne': 150,
+  'Ubtan Soap – Cleanses': 140,
+  'Beetroot Soap – Cools Skin': 100,
+  'Coconut Milk Soap – Collagen': 130,
+
+  // 🧼 SOAPS – NORMAL SKIN
+  'Coffee Soap – Dtan': 130,
+  'Almond Soap – Enhances tone': 175,
+  'Pineapple Soap – Anti ageing': 140,
+  'Watermelon Soap – Youthful': 130,
+  'Java Plum Soap – Anti ageing': 150,
+  'Red Wine Soap – Anti ageing': 150,
+  'Manjista Soap – Complexion': 150,
+  'Multani Mitti Soap – Complexion': 130,
+  'Ubtan Soap – Dark Spots': 140,
+
+  // 👶 KIDS SOAPS
+  'Banana (Kids) – moisturising': 125,
+  'Apple (Kids) – gentle cleansing': 130,
+  'Cerelac (Kids) – mild care': 130,
+
+  // 💇 HAIR SHAMPOOS
+  'Herbal Shampoo - 500ml': 700,
+  'Aloevera Shampoo - 500ml': 750,
+  'Hibiscus Shampoo - 500ml': 700,
+  'Neem and Tulsi Shampoo - 500ml': 750,
+  'Onion Shampoo - 500ml': 750,
+  'Soap Nuts Shampoo - 500ml': 700,
+  'Rosemary Shampoo - 500ml': 750,
+  'Amla Shampoo - 500ml': 700,
+  'Bhringraj Shampoo - 500ml': 800,
+  'Flax Seeds Shampoo - 500ml': 800,
+
+  // 💇 CONDITIONERS
+  'Apricot Conditioner - 200ml': 400,
+  'Coconut Milk Conditioner - 200ml': 400,
+  'Argan Hair Fall Control Conditioner - 200ml': 350,
+  'Onion Conditioner - 200ml': 300,
+
+  // 💇 TREATMENTS
+  'Lice and Dandruff Pack - 500gms': 300,
+  'Hair Growth Spray and Oil - 100ml': 150,
+  'Hair Dye Powder - 50gms': 100,
+
+  // 👶 BABY PRODUCTS
+  'Baby Soap': 120,
+  'Baby Moisturiser': 180,
+  'Baby Bath Powder': 150,
+  'Baby Powder': 140,
+  'Baby Shower Oil': 200,
+
+  // 💧 SERUMS
+  'Acne Serum – acne control - 30ml': 300,
+  'Dry Skin Serum – deep hydration - 30ml': 300,
+  'Stretch Marks Serum - 30ml': 300,
+  'Oily and Combination Skin Serum - 30ml': 300,
+  'All Skin Repair Serum - 30ml': 300,
+
+  // 🧴 MOISTURISERS
+  'Vitamin C + E Moisturiser - 100gms': 200,
+  'Aloe Vera Moisturiser - 100gms': 200,
+  'Coconut Milk Moisturiser - 100gms': 225,
+  'Cucumber Moisturiser - 100gms': 175,
+  'Beetroot Moisturiser - 100gms': 175,
+  'Saffron Moisturiser - 100gms': 250,
+  'Rice Starch Moisturiser - 100gms': 225,
+
+  // ➕ ADD-ONS
+  'Bridal Face Pack Powder - 100gms': 150,
+  'Dark Circles Eye Cream - 50gms': 125,
+  'Waxing Powder - 100gms': 130,
+  'Tooth Powder - 100gms': 100,
+  'Lipsticks': 100,
+  'Lipbalms': 100,
+  'Unwanted Hair Removal Soap': 130,
+  'Skin Whitening Soap': 140
+};
+
+
+  const product = document.getElementById('product');
+  const soapSkin = document.getElementById('soapSkin');
+  const soapSkinWrapper = document.getElementById('soapSkinWrapper');
+  const itemSelect = document.getElementById('item');
+  const priceDisplay = document.getElementById('priceDisplay');
+  const qtyInput = document.getElementById('qty');
+  const notesInput = document.getElementById('notes');
+  const addItemBtn = document.getElementById('addItemBtn');
+  const orderItemsUl = document.getElementById('orderItems');
+  const totalPriceSpan = document.getElementById('totalPrice');
+  
+  let orders = [];
+
+  // Helper: create a normalized key for merging orders - based on category, item, skin, and notes
+  function getOrderKey(order) {
+    const notesKey = order.notes ? order.notes.toLowerCase().trim() : '';
+    return `${order.category}|||${order.item}|||${order.skin}|||${notesKey}`;
+  }
+
+  // Handle Category Change
+  product.addEventListener('change', () => {
+    itemSelect.innerHTML = '<option value="">Select item</option>';
+    priceDisplay.textContent = '';
+    const isSoap = product.value === 'Soaps';
+    soapSkinWrapper.style.display = isSoap ? 'block' : 'none';
+    
+    if (!isSoap && otherItems[product.value]) {
+      otherItems[product.value].forEach(i => {
+        const opt = document.createElement('option');
+        opt.value = opt.textContent = i;
+        itemSelect.appendChild(opt);
+      });
+    }
+  });
+
+  // Handle Skin Type Change
+  soapSkin.addEventListener('change', () => {
+    itemSelect.innerHTML = '<option value="">Select item</option>';
+    const list = soapItemsBySkin[soapSkin.value] || [];
+    list.forEach(i => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = i;
+      itemSelect.appendChild(opt);
+    });
+  });
+
+  // Show Price per item
+  itemSelect.addEventListener('change', () => {
+    const val = itemSelect.value;
+    const price = prices[val] || (product.value === 'Soaps' ? prices['default_soap'] : 200);
+    priceDisplay.textContent = val ? `Price per unit: ₹${price}` : '';
+  });
+
+  // Add Item to Cart (merge similar)
+  addItemBtn.addEventListener('click', () => {
+    if (!product.value || !itemSelect.value) {
+      alert('Please select a category and item first.');
+      return;
+    }
+
+    const val = itemSelect.value;
+    const unitPrice = prices[val] || (product.value === 'Soaps' ? prices['default_soap'] : 200);
+    
+    // Check if value is "Bulk" or a number
+    const qtyInputVal = qtyInput.value;
+    const isBulk = qtyInputVal === "Bulk";
+    const qty = isBulk ? "Bulk" : parseInt(qtyInputVal);
+    
+    // Calculate price (0 for bulk to indicate quote needed)
+    const priceCalculation = isBulk ? 0 : (unitPrice * qty);
+
+    const newOrder = {
+      category: product.value,
+      item: val,
+      skin: soapSkin.value || 'N/A',
+      qty: qty,
+      price: priceCalculation,
+      notes: notesInput.value.trim()
+    };
+
+    const newOrderKey = getOrderKey(newOrder);
+    const existingIndex = orders.findIndex(o => getOrderKey(o) === newOrderKey);
+
+    // Merge only if it's not a Bulk order (Bulk orders added separately)
+    if (existingIndex !== -1 && !isBulk) {
+      orders[existingIndex].qty += qty;
+      orders[existingIndex].price += unitPrice * qty;
+    } else {
+      orders.push(newOrder);
+    }
+
+    renderList();
+
+    // Reset item-specific fields
+    itemSelect.selectedIndex = 0;
+    qtyInput.selectedIndex = 0; // Reset dropdown to 1
+    notesInput.value = '';
+    priceDisplay.textContent = '';
+  });
+
+  function renderList() {
+    orderItemsUl.innerHTML = '';
+    let grandTotal = 0;
+
+    orders.forEach((order, index) => {
+      grandTotal += order.price;
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div>
+          <strong>${order.item}</strong> (x${order.qty})<br>
+          <small>Skin Type: ${order.skin}</small><br>
+          ${order.notes ? `<small>Note: ${order.notes}</small><br>` : ''}
+          <small>${order.qty === "Bulk" ? "Price: Contact for Quote" : `₹${order.price}`}</small>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})" title="Remove Item">✕</button>
+      `;
+      orderItemsUl.appendChild(li);
+    });
+
+    totalPriceSpan.textContent = grandTotal;
+  }
+
+  window.removeItem = (index) => {
+    orders.splice(index, 1);
+    renderList();
+  };
+
+  // WhatsApp Submission
+  document.getElementById('orderForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (orders.length === 0) {
+      alert('Please add at least one item to your list.');
+      return;
+    }
+
+    let message = `*New Order*%0A--------------------------%0A`;
+    orders.forEach((o, i) => {
+      message += `*${i+1}. ${o.item}*%0A`;
+      message += `Qty: ${o.qty} | Skin: ${o.skin}%0A`;
+      if(o.notes) message += `Note: _${o.notes}_%0A`;
+      message += `Subtotal: ${o.qty === "Bulk" ? "Contact for Quote" : "₹" + o.price}%0A%0A`;
+    });
+
+    const finalTotal = orders.reduce((sum, o) => sum + o.price, 0);
+    message += `--------------------------%0A*Grand Total: ₹${finalTotal}*`;
+
+    window.open(`https://wa.me/917842133309?text=${message}`, '_blank');
+  });
+  /* GLOBAL PRODUCT SEARCH – FIXED & COMPLETE */
+const searchInput = document.getElementById('globalProductSearch');
+const productList = document.getElementById('product-list');
+const allDetails = productList.querySelectorAll('details.card');
+
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.trim().toLowerCase();
+
+  allDetails.forEach(detail => {
+    const summaryText = detail.querySelector('summary')?.textContent.toLowerCase() || '';
+    const listItems = detail.querySelectorAll('li');
+
+    let hasMatch = false;
+
+    // Check list items
+    listItems.forEach(li => {
+      const text = li.textContent.toLowerCase();
+      if (!query || text.includes(query) || summaryText.includes(query)) {
+        li.style.display = '';
+        hasMatch = true;
+      } else {
+        li.style.display = 'none';
+      }
+    });
+
+    // If summary itself matches
+    if (summaryText.includes(query)) {
+      hasMatch = true;
+      listItems.forEach(li => li.style.display = '');
+    }
+
+    // Show / hide details
+    if (!query) {
+      detail.style.display = '';
+      detail.open = false;
+    } else if (hasMatch) {
+      detail.style.display = '';
+      detail.open = true;
+
+      // Open parent details (important for nested cards)
+      let parent = detail.parentElement;
+      while (parent && parent !== productList) {
+        if (parent.tagName === 'DETAILS') parent.open = true;
+        parent = parent.parentElement;
+      }
+    } else {
+      detail.style.display = 'none';
+      detail.open = false;
+    }
+  });
+});
+document.querySelectorAll('.card > details').forEach((detail) => {
+  detail.addEventListener('toggle', () => {
+    if (detail.open) {
+      // Close sibling details inside the same card
+      const siblings = Array.from(detail.parentElement.querySelectorAll(':scope > details'));
+      siblings.forEach((other) => {
+        if (other !== detail && other.open) {
+          other.open = false;
+        }
+      });
+    }
+  });
+});
+/* MOBILE NAV AUTO-HIDE ON SCROLL (SAFE & ISOLATED) */
+/*let lastScrollY = window.scrollY;
+/*const nav = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth > 768) return; // desktop: do nothing
+
+  if (window.scrollY > lastScrollY && window.scrollY > 80) {
+    nav.classList.add('nav-hidden');   // scrolling down → hide
+  } else {
+    nav.classList.remove('nav-hidden'); // scrolling up → show
+  }
+
+  lastScrollY = window.scrollY;
+});/*
+/* ===========================
+   HAMBURGER MENU TOGGLE
+   =========================== */
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+document.querySelectorAll('#navLinks a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      navLinks.classList.remove('open');
+    }
+  });
+});
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth > 768) return; // only for mobile
+
+  if (window.scrollY > lastScrollY && window.scrollY > 0) {
+    // Scrolling down
+    hamburger.style.opacity = '0';
+    hamburger.style.pointerEvents = 'none';
+  } else {
+    // Scrolling up
+    hamburger.style.opacity = '1';
+    hamburger.style.pointerEvents = 'auto';
+  }
+  lastScrollY = window.scrollY;
+});
+
+let lastCartCount = 0;
+
+function updateCartBadge() {
+  const cartCount = document.getElementById('cartCount');
+  if (!cartCount) return;
+
+  const count = orders.reduce((sum, o) => {
+    return sum + (o.qty === "Bulk" ? 1 : o.qty);
+  }, 0);
+
+  if (count === 0) {
+    cartCount.style.display = 'none';
+  } else {
+    cartCount.style.display = 'inline-block';
+    cartCount.textContent = count;
+
+    // 🔔 Animate ONLY when count increases
+    if (count > lastCartCount) {
+      cartCount.classList.remove('cart-badge-animate');
+      void cartCount.offsetWidth; // force reflow
+      cartCount.classList.add('cart-badge-animate');
+    }
+  }
+
+  lastCartCount = count;
+}
+
+
+/* Hook into existing functions safely */
+const originalRenderList = renderList;
+renderList = function () {
+  originalRenderList();
+  updateCartBadge();
+};
+updateCartBadge(); // hide cart badge on initial load
+
+  /* CART ICON CLICK → SCROLL TO ORDER SECTION */
+  const cartIcon = document.getElementById('cartIcon');
+  const orderSection = document.getElementById('order-now');
+
+  if (cartIcon && orderSection) {
+    cartIcon.addEventListener('click', () => {
+      orderSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
+
+</script>
+</body>
+</html>
